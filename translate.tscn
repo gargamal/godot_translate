@@ -1,0 +1,60 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://translate.gd" type="Script" id=1]
+
+[node name="translate" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="cont" type="VBoxContainer" parent="."]
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 32
+
+[node name="generate_translate" type="Button" parent="cont"]
+margin_right = 819.0
+margin_bottom = 70.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Generate Translate"
+
+[node name="generate_fr" type="Button" parent="cont"]
+margin_top = 102.0
+margin_right = 819.0
+margin_bottom = 172.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Generate FR"
+
+[node name="generate_en" type="Button" parent="cont"]
+margin_top = 204.0
+margin_right = 819.0
+margin_bottom = 275.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Generate EN"
+
+[node name="generate_es" type="Button" parent="cont"]
+margin_top = 307.0
+margin_right = 819.0
+margin_bottom = 377.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Generate ES"
+
+[node name="generate_pt" type="Button" parent="cont"]
+margin_top = 409.0
+margin_right = 819.0
+margin_bottom = 480.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Generate PT"
+
+[connection signal="pressed" from="cont/generate_translate" to="." method="_on_generate_translate_pressed"]
+[connection signal="pressed" from="cont/generate_fr" to="." method="_on_generate_fr_pressed"]
+[connection signal="pressed" from="cont/generate_en" to="." method="_on_generate_en_pressed"]
+[connection signal="pressed" from="cont/generate_es" to="." method="_on_generate_es_pressed"]
+[connection signal="pressed" from="cont/generate_pt" to="." method="_on_generate_pt_pressed"]
