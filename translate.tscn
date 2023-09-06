@@ -4,6 +4,7 @@
 
 [node name="translate" type="CanvasLayer"]
 script = ExtResource( 1 )
+path_translate_file = "user://translate.json"
 
 [node name="cont" type="VBoxContainer" parent="."]
 anchor_left = 0.1
@@ -16,45 +17,63 @@ custom_constants/separation = 32
 
 [node name="generate_translate" type="Button" parent="cont"]
 margin_right = 819.0
-margin_bottom = 70.0
+margin_bottom = 41.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Generate Translate"
 
 [node name="generate_fr" type="Button" parent="cont"]
-margin_top = 102.0
+margin_top = 73.0
 margin_right = 819.0
-margin_bottom = 172.0
+margin_bottom = 114.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Generate FR"
 
 [node name="generate_en" type="Button" parent="cont"]
-margin_top = 204.0
+margin_top = 146.0
 margin_right = 819.0
-margin_bottom = 275.0
+margin_bottom = 187.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Generate EN"
 
 [node name="generate_es" type="Button" parent="cont"]
-margin_top = 307.0
+margin_top = 219.0
 margin_right = 819.0
-margin_bottom = 377.0
+margin_bottom = 260.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Generate ES"
 
 [node name="generate_pt" type="Button" parent="cont"]
-margin_top = 409.0
+margin_top = 292.0
+margin_right = 819.0
+margin_bottom = 333.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Generate PT"
+
+[node name="generate_ru" type="Button" parent="cont"]
+margin_top = 365.0
+margin_right = 819.0
+margin_bottom = 406.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Generate RU"
+
+[node name="first_letter_upper" type="Button" parent="cont"]
+margin_top = 438.0
 margin_right = 819.0
 margin_bottom = 480.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "Generate PT"
+text = "Upper first character"
 
 [connection signal="pressed" from="cont/generate_translate" to="." method="_on_generate_translate_pressed"]
 [connection signal="pressed" from="cont/generate_fr" to="." method="_on_generate_fr_pressed"]
 [connection signal="pressed" from="cont/generate_en" to="." method="_on_generate_en_pressed"]
 [connection signal="pressed" from="cont/generate_es" to="." method="_on_generate_es_pressed"]
 [connection signal="pressed" from="cont/generate_pt" to="." method="_on_generate_pt_pressed"]
+[connection signal="pressed" from="cont/generate_ru" to="." method="_on_generate_ru_pressed"]
+[connection signal="pressed" from="cont/first_letter_upper" to="." method="_on_first_letter_upper_pressed"]

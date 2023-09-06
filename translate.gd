@@ -6,6 +6,7 @@ export(String) var path_fr_translate_file :String = "res://translate/translate_f
 export(String) var path_en_translate_file :String = "res://translate/translate_en.csv"
 export(String) var path_es_translate_file :String = "res://translate/translate_es.csv"
 export(String) var path_pt_translate_file :String = "res://translate/translate_pt.csv"
+export(String) var path_ru_translate_file :String = "res://translate/translate_ru.csv"
 
 
 var all_translates :Dictionary
@@ -17,6 +18,7 @@ func _on_generate_translate_pressed():
 		{"counrty": "EN", "translates": open_translate_one_file(path_en_translate_file)},
 		{"counrty": "ES", "translates": open_translate_one_file(path_es_translate_file)},
 		{"counrty": "PT", "translates": open_translate_one_file(path_pt_translate_file)},
+		{"counrty": "RU", "translates": open_translate_one_file(path_ru_translate_file)},
 	]
 	
 	var all_translate :Dictionary = { "language": [] }
@@ -69,6 +71,12 @@ func _on_generate_pt_pressed():
 	save_langue(path_pt_translate_file, langue_list)
 
 
+func _on_generate_ru_pressed():
+	open_translate_file()
+	var langue_list :Array = create_object_langue("RU")
+	save_langue(path_ru_translate_file, langue_list)
+
+
 func open_translate_file():
 	if all_translates.empty():
 		var file = File.new()
@@ -119,3 +127,17 @@ func open_translate_one_file(path_file :String) -> Array:
 			translate_one_file.append({"key": file_elt[0], "translate": file_elt[1]})
 	
 	return translate_one_file
+
+
+func _on_first_letter_upper_pressed():
+	open_translate_file()
+	
+	for translates in all_translates.language:
+		for line in translates.translate:
+			line.word = line.word.substr(0,1).to_upper() + line.word.substr(1)
+	
+	var file_save :File = File.new()
+	var err_save :int = file_save.open("user://translate_new.json", File.WRITE)
+	if err_save == OK:
+		file_save.store_line(to_json(all_translates))
+		file_save.close()
